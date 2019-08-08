@@ -1,1 +1,29 @@
 := is the short assignment statement.
+
+
+--- Log ---
+Various logging levels exist including
+debug,
+info,
+notice,
+warning,
+err,
+crit,
+alert,
+and emerg (in reverse order of severity).
+
+Todo::run stdERR.go and logFiles.go... on Antegros + understand the errors.go
+Todo:: remove Antegros and install other Linux platform
+
+--- Garbage Collection (GC) ---
+Garbage Collection is the process of freeing memory space that is not being used.
+In other words, the garbage collector sees which objects are out of scope and can no longer be referenced, and it frees the memory space they consume.
+
+--- GC is based on tricolor algorithm ---
+The operation of the Go garbage collector is based on the tricolor algorithm
+It can work concurrently with the program and uses a write barrier.
+This means that when a Go program runs, the Go scheduler is responsible for the scheduling of the application and the garbage collector as if the Go scheduler had to deal with a regular application with multiple goroutines!
+
+The objects of the black set are guaranteed to have no pointers to any object of the white set.
+However, an object in the white set can have a pointer to an object of the black set, because this has no effect on the operation of the garbage collector! The objects of the grey set might have pointers to some objects of the white set.
+Also, the objects of the white set are candidates for garbage collection.
